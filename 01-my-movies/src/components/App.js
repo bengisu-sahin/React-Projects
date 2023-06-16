@@ -34,16 +34,16 @@ class App extends React.Component {
         return (
 
             <div className="container">
-                
+
                 <div className="row">
                     <div className="col-lg-12">
 
-                        <SearchBar />
+                        {/*                         <SearchBar /> */}
 
                     </div>
 
                 </div>
-                <MovieList />
+                <MovieList movies={this.state.movies} />
             </div>
 
 
