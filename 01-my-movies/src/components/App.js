@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
+import AddMovie from "./AddMovie";
 import axios from "axios";
+import {BrowserRouter as Router,Route,Routes,Link} from "react-router-dom";
 
 class App extends React.Component {
     //state is an object
@@ -22,8 +24,8 @@ class App extends React.Component {
 
     //axios http istekleri yapmak icin kullanılan bir kütüphane
     async componentDidMount() {
-        const response=await axios.get("http://localhost:3002/movies");
-        this.setState({movies:response.data});
+        const response = await axios.get("http://localhost:3002/movies");
+        this.setState({ movies: response.data });
 
     }
 
@@ -77,24 +79,28 @@ class App extends React.Component {
         )
 
         return (
-
-            <div className="container">
-
-                <div className="row">
-                    <div className="col-lg-12">
-                        <SearchBar searchMovieProp={this.searchMovie} />
-                    </div>
-
+            <Router>
+                <div className="container">
+                    <Routes>
+                            <Route
+                                path="/"
+                                element={(
+                                    <React.Fragment>
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <SearchBar searchMovieProp={this.searchMovie} />
+                                            </div>
+                                        </div>
+                                        <MovieList movies={filteredMovies} deleteMovieProp={this.deleteMovie} />
+                                    </React.Fragment>
+                                )}
+                            />
+                            <Route path="/add" element={<AddMovie />} />
+                    </Routes>
                 </div>
-                <MovieList movies={filteredMovies} deleteMovieProp={this.deleteMovie} />
-            </div>
-
-
-        )
-
+            </Router>
+        );
     }
-
-
 }
 
 export default App;
