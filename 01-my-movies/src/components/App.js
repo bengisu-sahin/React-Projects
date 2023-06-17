@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
+import axios from "axios";
 
 class App extends React.Component {
     //state is an object
@@ -12,22 +13,51 @@ class App extends React.Component {
     }
 
     //fetch işlemlerini burda yapmak en dogrusu cunku bu lifecycle metodu ui componenetleri DOM da yerini aldıktan hemen sonra çalışmakta
-    async componentDidMount() {
+    /*async componentDidMount() {
         const baseURL = "http://localhost:3002/movies";
         const response = await fetch(baseURL);
         const data = await response.json();
         this.setState({ movies: data })
+    }*/
+
+    //axios http istekleri yapmak icin kullanılan bir kütüphane
+    async componentDidMount() {
+        const response=await axios.get("http://localhost:3002/movies");
+        this.setState({movies:response.data});
+
     }
 
-    deleteMovie = (movie) => {
+    // deleteMovie = (movie) => {
+    //     const newMovieList = this.state.movies.filter(m => m.id !== movie.id);
+
+    //     //state bos ise bu kalıp dogru
+    //     /*  this.setState({
+    //           movies:newMovieList
+    //       })*/
+
+    //     //updating
+    //     this.setState(state => ({
+    //         movies: newMovieList
+    //     }))
+    // }  
+
+    //FETCH API
+    /*deleteMovie = async (movie) => {
+        //JS ifadesi oldugu için `` kullanılır
+        const baseURL = `http://localhost:3002/movies/${movie.id}`; //silinecek film id si
+        //default metod get dir.
+        await fetch(baseURL,{method:"DELETE"});
         const newMovieList = this.state.movies.filter(m => m.id !== movie.id);
+        this.setState(state => ({
+            movies: newMovieList
+        }))
 
-        //state bos ise bu kalıp dogru
-        /*  this.setState({
-              movies:newMovieList
-          })*/
+    }*/
 
-        //updating
+    //Axios ile delete
+    deleteMovie = async (movie) => {
+        axios.delete(`http://localhost:3002/movies/${movie.id}`);
+        const newMovieList = this.state.movies.filter(m => m.id !== movie.id);
         this.setState(state => ({
             movies: newMovieList
         }))
