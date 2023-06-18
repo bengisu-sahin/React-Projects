@@ -4,7 +4,8 @@ import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
 import axios from "axios";
-import {BrowserRouter as Router,Route,Routes,Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 
 class App extends React.Component {
     //state is an object
@@ -29,6 +30,8 @@ class App extends React.Component {
 
     }
 
+
+    //DELETE MOVIE
     // deleteMovie = (movie) => {
     //     const newMovieList = this.state.movies.filter(m => m.id !== movie.id);
 
@@ -56,6 +59,8 @@ class App extends React.Component {
 
     }*/
 
+
+    //DELETE MOVIE
     //Axios ile delete
     deleteMovie = async (movie) => {
         axios.delete(`http://localhost:3002/movies/${movie.id}`);
@@ -66,9 +71,21 @@ class App extends React.Component {
 
     }
 
+    //SEARCH MOVIE
     searchMovie = (event) => {
         this.setState({ searchQuery: event.target.value })
     }
+
+    //ADD MOVIE
+    addMovie = async (movie) => {
+        await axios.post(`http://localhost:3002/movies/`, movie);
+        this.setState(state => ({
+            movies: state.movies.concat([movie])
+        }))
+        
+    }
+
+    //RENDER
 
     render() {
 
@@ -79,23 +96,28 @@ class App extends React.Component {
         )
 
         return (
+
             <Router>
                 <div className="container">
                     <Routes>
-                            <Route
-                                path="/"
-                                element={(
-                                    <React.Fragment>
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <SearchBar searchMovieProp={this.searchMovie} />
-                                            </div>
+                        <Route
+                            path="/"
+                            element={(
+                                <React.Fragment>
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                            <SearchBar searchMovieProp={this.searchMovie} />
                                         </div>
-                                        <MovieList movies={filteredMovies} deleteMovieProp={this.deleteMovie} />
-                                    </React.Fragment>
-                                )}
+                                    </div>
+                                    <MovieList movies={filteredMovies} deleteMovieProp={this.deleteMovie} />
+                                </React.Fragment>
+                            )}
+                        />
+                        <Route path="/add" element={
+                            <AddMovie 
+                                onAddMovie={(movie) => { this.addMovie(movie); }}
                             />
-                            <Route path="/add" element={<AddMovie />} />
+                        } />
                     </Routes>
                 </div>
             </Router>
