@@ -11,7 +11,6 @@ class EditMovie extends React.Component {
     }
     async componentDidMount() {
         const id = window.location.pathname.replace("/edit/", "")
-        console.log(id);
         const response = await axios.get(`http://localhost:3002/movies/${id}`);
         const movie = response.data;
         this.setState({
@@ -23,8 +22,19 @@ class EditMovie extends React.Component {
     }
     handleFormSubmit = (e) => {
         e.preventDefault();
-
+        const { name, rating, overview, imageURL } = this.state;
+        const id = window.location.pathname.replace("/edit/", "");
+        const updatedMovie = {
+            name: name,
+            rating: rating,
+            overview: overview,
+            imageURL: imageURL
+        }
+        this.props.onEditMovie(id, updatedMovie);
     };
+    onInputChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
     render() {
         return (
             <div className="container">
@@ -39,26 +49,26 @@ class EditMovie extends React.Component {
                     <div className="form-row">
                         <div className="form-group col-md-10">
                             <label htmlFor="inputName">Name</label>
-                            <input type="text" className="form-control" name="name" value={this.state.name} />
+                            <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.onInputChange} />
                         </div>
                         <div className="form-group col-md-2">
                             <label htmlFor="inputRating">Rating</label>
-                            <input type="text" className="form-control" name="rating" value={this.state.rating} />
+                            <input type="text" className="form-control" name="rating" value={this.state.rating} onChange={this.onInputChange}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="inputImage">Image URL</label>
-                            <input type="text" className="form-control" name="imageURL" value={this.state.imageURL} />
+                            <input type="text" className="form-control" name="imageURL" value={this.state.imageURL} onChange={this.onInputChange}/>
                         </div>
                     </div>
                     <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="overviewTextarea">Overview</label>
-                            <textarea className="form-control" name="overview" rows="5" value={this.state.overview}></textarea>
+                            <textarea className="form-control" name="overview" rows="5" value={this.state.overview} onChange={this.onInputChange}></textarea>
                         </div>
                     </div>
-                    <input type="submit" className="btn btn-danger btn-block" value="Add Movie" />
+                    <input type="submit" className="btn btn-danger btn-block" value="EditMovie" />
                 </form>
             </div>
         );

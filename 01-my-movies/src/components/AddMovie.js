@@ -11,7 +11,6 @@ const AddMovie = (props) => {
         props.onAddMovie(newMovie);
         navigate('/');
     };
-
     return (
         <div className="container">
             <form className="mt-5" onSubmit={handleFormSubmit}>
