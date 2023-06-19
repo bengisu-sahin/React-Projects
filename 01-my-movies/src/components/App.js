@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import SearchBar from "./SearchBar";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
+import EditMovie from "./EditMovie";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 class App extends React.Component {
     //state is an object
@@ -82,7 +83,7 @@ class App extends React.Component {
         this.setState(state => ({
             movies: state.movies.concat([movie])
         }))
-        
+
     }
 
     //RENDER
@@ -93,7 +94,9 @@ class App extends React.Component {
             (movie) => {
                 return movie.name.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1
             }
-        )
+        ).sort((a, b) => {
+            return a.id < b.id ? 1 : a.id > b.id ? -1 : 0;
+        })
 
         return (
 
@@ -114,10 +117,13 @@ class App extends React.Component {
                             )}
                         />
                         <Route path="/add" element={
-                            <AddMovie 
+                            <AddMovie
                                 onAddMovie={(movie) => { this.addMovie(movie); }}
                             />
                         } />
+                        <Route path="/edit/:id" element={<EditMovie />} />
+
+
                     </Routes>
                 </div>
             </Router>
