@@ -1,17 +1,24 @@
-import React from "react";
-import Book from "./Book"
+import React from 'react';
+import './BookList.css';
+import Book from './Book';
 
 class BookList extends React.Component {
     render() {
-        /*Bu kod parçası, this.props.books dizisindeki her bir book öğesi için 
-        <Book> bileşenlerinin oluşturulmasını sağlar. Her bir <Book> bileşeni 
-        book prop'uyla birlikte render edilir ve her bir öğe için benzersiz bir key atanır.*/
-        const bookList = this.props.books.map((book, i) => {
-            return <Book book={book}
-                key={i}
-            />
-        })
-        return <div>{bookList}</div>
+        // console.log(this.props.books)
+        const bookList = this.props.books.map((book, i) => { return <Book book={book} key={i} /> })
+        return (
+            <section className="page-section bg-light" id="portfolio">
+                <div className="container">
+                    <div className="text-center">
+                        <h2 className="section-heading text-uppercase">BookFolio</h2>
+                        <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    </div>
+                    <div className="row">
+                        {bookList}
+                    </div>
+                </div>
+            </section>
+        )
     }
 }
 
