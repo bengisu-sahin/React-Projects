@@ -1,5 +1,4 @@
 import React from 'react';
-
 export const BookContext = React.createContext();
 
 class BookContextProvider extends React.Component {
@@ -53,8 +52,7 @@ class BookContextProvider extends React.Component {
         return (
             <BookContext.Provider value={{ ...this.state }}>
                 {this.props.children}
-            </BookContext.Provider>
-        )
+            </BookContext.Provider>)
     }
 }
 

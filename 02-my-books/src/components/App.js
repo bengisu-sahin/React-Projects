@@ -4,13 +4,13 @@ import BookContextProvider from '../contexts/BookContext';
 import ThemeContextProvider from '../contexts/ThemeContext';
 
 class App extends React.Component {
-    render() {
+    render () {
         return (
-            <ThemeContextProvider>
-                <BookContextProvider>
-                    <BookList />
-                </BookContextProvider>
-            </ThemeContextProvider>
+                <ThemeContextProvider>
+                    <BookContextProvider>
+                        <BookList />
+                    </BookContextProvider>
+                </ThemeContextProvider>
         );
     }
 }
