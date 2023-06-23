@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Employee from './Employee';
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import { Button } from 'react-bootstrap';
@@ -10,6 +10,9 @@ const EmployeeList = () => {
     const [show, setShow] = useState(false);
     const handleShow = () => { setShow(true); }
     const handleClose = () => { setShow(false); }
+    useEffect(() => {
+        handleClose();
+    }, [employees]);
     return (
         <>
             <div className="table-title">
@@ -18,7 +21,7 @@ const EmployeeList = () => {
                         <h2>Manage <b>Employees</b></h2>
                     </div>
                     <div className="col-sm-6">
-                    <Button onClick={handleShow} className="btn btn-success text-white" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></Button>
+                        <Button onClick={handleShow} className="btn btn-success text-white" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></Button>
                     </div>
                 </div>
             </div>
