@@ -1,10 +1,7 @@
 const Employee = ({ employees }) => {
-    /**
-            React bileşenleri genellikle bir kök (root) element içinde döndürülür. Yani, bir bileşenin dönüş değeri olarak sadece bir ana element olması beklenir. Ancak, bazen birden fazla JSX elementini birleştirmek veya birleştirilmiş elementleri döndürmek gerekebilir.
-            Bu durumda, React fragmentleri (<> ve </>) kullanılabilir. Fragmentler, bir kök elemente ihtiyaç duymadan birden fazla elementi gruplamak için kullanılır. Fragmentler, görüntülenmeyen bir wrapper elementi oluşturmadan elementleri birleştirmek için ideal bir yöntemdir.
-             */
     return (
-
+        /**React bileşenleri genellikle bir kök (root) element içinde döndürülür. Yani, bir bileşenin dönüş değeri olarak sadece bir ana element olması beklenir. Ancak, bazen birden fazla JSX elementini birleştirmek veya birleştirilmiş elementleri döndürmek gerekebilir. Bu durumda, React fragmentleri (<> ve </>) kullanılabilir. Fragmentler, bir kök elemente ihtiyaç duymadan birden fazla elementi gruplamak için kullanılır. Fragmentler, görüntülenmeyen bir wrapper elementi oluşturmadan elementleri birleştirmek için ideal bir yöntemdir.
+    */
         <>
             {
                 employees.map((employee) => (
@@ -21,7 +18,6 @@ const Employee = ({ employees }) => {
                 ))
             }
         </>
-
     )
 }
 
