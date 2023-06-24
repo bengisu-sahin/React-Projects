@@ -209,6 +209,15 @@ table.table .avatar {
 .modal form label {
   font-weight: normal;
 }
-.btn-act{
+
+.btn-act {
   padding: 4px;
+}
+
+.form-control {
+  margin-top: 20px;
+}
+
+.btnFunc {
+  margin-top: 20px;
 }

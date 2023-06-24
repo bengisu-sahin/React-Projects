@@ -1,26 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from 'react';
 import { EmployeeContext } from '../contexts/EmployeeContext';
+import { Button } from 'react-bootstrap';
+import EditForm from './EditForm';
+import { Modal } from 'react-bootstrap';
 
-const Employee = ({ employees }) => {
+const Employee = ({ employee }) => {
     const { deleteEmployee } = useContext(EmployeeContext);
+    const [show, setShow] = useState(false);
+    const handleShow = () => { setShow(true); }
+    const handleClose = () => { setShow(false); }
+    useEffect(() => {
+        handleClose();
+    }, [employee]);
     return (
-        /**React bileşenleri genellikle bir kök (root) element içinde döndürülür. Yani, bir bileşenin dönüş değeri olarak sadece bir ana element olması beklenir. Ancak, bazen birden fazla JSX elementini birleştirmek veya birleştirilmiş elementleri döndürmek gerekebilir. Bu durumda, React fragmentleri (<> ve </>) kullanılabilir. Fragmentler, bir kök elemente ihtiyaç duymadan birden fazla elementi gruplamak için kullanılır. Fragmentler, görüntülenmeyen bir wrapper elementi oluşturmadan elementleri birleştirmek için ideal bir yöntemdir.
-    */
         <>
-            {
-                employees.map((employee) => (
-                    <tr key={employee.id}>
-                        <td>{employee.name}</td>
-                        <td>{employee.email}</td>
-                        <td>{employee.address}</td>
-                        <td>{employee.phone}</td>
-                        <td>
-                            <button className="btn text-warning btn -act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
-                            <button onClick={() => deleteEmployee(employee.id)} className="btn text-danger btn -act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
-                        </td>
-                    </tr>
-                ))
-            }
+            <td>{employee.name}</td>
+            <td>{employee.email}</td>
+            <td>{employee.address}</td>
+            <td>{employee.phone}</td>
+            <td>
+                <button onClick={handleShow} className="btn text-warning btn -act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
+                <button onClick={() => deleteEmployee(employee.id)} className="btn text-danger btn -act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></button>
+            </td>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header className='modal-header' closeButton>
+                    <Modal.Title>Update Employee</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditForm theEmployee={employee} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose} > Close </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
