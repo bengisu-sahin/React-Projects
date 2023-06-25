@@ -13,7 +13,7 @@ const AddForm = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        addEmployee(name, email, address, phone);
+        addEmployee(name, email, address, phone)
     }
     return (
         <Form onSubmit={handleSubmit}>
@@ -21,41 +21,43 @@ const AddForm = () => {
                 <Form.Control
                     type="text"
                     placeholder="Name *"
-                    required
-                    name='name'
+                    name="name"
                     value={name}
                     onChange={e => onInputChange(e)}
+                    required
                 />
             </Form.Group>
+
             <Form.Group>
                 <Form.Control
                     type="email"
                     placeholder="Email *"
-                    required
-                    name='email'
+                    name="email"
                     value={email}
                     onChange={e => onInputChange(e)}
+                    required
+                />
+            </Form.Group>
+            <Form.Group>
+                <Form.Control
+                    as="textarea"
+                    placeholder="Address *"
+                    name="address"
+                    value={address}
+                    onChange={e => onInputChange(e)}
+                    rows={3}
                 />
             </Form.Group>
             <Form.Group>
                 <Form.Control
                     type="text"
                     placeholder="Phone"
-                    name='phone'
+                    name="phone"
                     value={phone}
                     onChange={e => onInputChange(e)}
                 />
-            </Form.Group><Form.Group>
-                <Form.Control
-                    as="textarea"
-                    placeholder="Address *"
-                    rows={3}
-                    name='address'
-                    value={address}
-                    onChange={e => onInputChange(e)}
-                />
             </Form.Group>
-            <Button className='btnFunc' variant="success" type="submit" block>
+            <Button variant="success" type="submit" block>
                 Add New Employee
             </Button>
         </Form>

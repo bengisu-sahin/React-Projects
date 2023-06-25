@@ -3,6 +3,7 @@ import Employee from './Employee';
 import { EmployeeContext } from '../contexts/EmployeeContext';
 import AddForm from './AddForm';
 import { Modal, Alert, Button } from 'react-bootstrap';
+import Pagination from './Pagination';
 
 const EmployeeList = () => {
     const { employees } = useContext(EmployeeContext);
@@ -10,7 +11,9 @@ const EmployeeList = () => {
     const handleShow = () => { setShow(true); }
     const handleClose = () => { setShow(false); }
     const [showAlert, setShowAlert] = useState(false);
-    let isInitialRender = true; 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [employeesPerPage, setEmployeesPerPage] = useState(2);
+    let isInitialRender = true;
     const handleShowAlert = () => {
         setShowAlert(true);
         setTimeout(() => {
@@ -18,7 +21,7 @@ const EmployeeList = () => {
         }, 2000);
     };
     useEffect(() => {
-        handleClose();  
+        handleClose();
         if (isInitialRender) {
             isInitialRender = false; // İlk render tamamlandıktan sonra flag'i false yapın
         } else {
@@ -27,7 +30,11 @@ const EmployeeList = () => {
             }
         }
     }, [employees]);
-    
+    const indexOfLastEmployee = currentPage * employeesPerPage;
+    const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+    const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee);
+    const totalPagesNum = Math.ceil(employees.length / employeesPerPage);
+
     return (
         <>
             <div className="table-title">
@@ -55,7 +62,7 @@ const EmployeeList = () => {
                 </thead>
                 <tbody>
                     {
-                        employees.sort((a, b) => (a.name < b.name ? -1 : 1)).map((employee) => (
+                        currentEmployees.sort((a, b) => (a.name < b.name ? -1 : 1)).map((employee) => (
                             <tr key={employee.id}>
                                 <Employee employee={employee} />
                             </tr>
@@ -63,6 +70,9 @@ const EmployeeList = () => {
                     }
                 </tbody>
             </table>
+
+            <Pagination pages={totalPagesNum} setCurrentPage={setCurrentPage} />
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className='modal-header' closeButton>
                     <Modal.Title>Add Employee</Modal.Title>

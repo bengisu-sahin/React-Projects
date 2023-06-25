@@ -139,20 +139,20 @@ table.table .avatar {
 }
 
 .pagination li a:hover {
-  color: #666;
+  color: #03A9F4;
 }
 
 .pagination li.active a,
 .pagination li.active a.page-link {
-  background: #03A9F4;
+  background: #04212f;
 }
 
 .pagination li.active a:hover {
-  background: #0397d6;
+  background: #1d79a1;
 }
 
 .pagination li.disabled i {
-  color: #ccc;
+  color: #d59797;
 }
 
 .pagination li i {
