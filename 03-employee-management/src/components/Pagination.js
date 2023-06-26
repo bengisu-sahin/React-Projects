@@ -20,7 +20,7 @@ const Pagination = ({pages,setCurrentPage,currentEmployees,employees}) => {
                     return (
                         <li
                             key={index}
-                            className={`${currentButton === page ? "page-item-active" : "page-item"}`}><a href="#" class="page-link"
+                            className={`${currentButton === page ? "page-item-active" : "page-item"}`}><a href="#" className="page-link"
                             onClick={()=>setCurrentButton(page)}
                             >{page}</a></li>
                     )

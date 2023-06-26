@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 export const EmployeeContext = createContext();
@@ -11,6 +11,14 @@ const EmployeeContextProvider = (props) => {
         { id: uuidv4(), name: 'Fran Wilson', email: 'franwilson@mail.com', address: 'C/ Araquil, 67, Madrid, Spain', phone: '(204) 69-573' },
         { id: uuidv4(), name: 'Martin Blank', email: 'martinblank@mail.com', address: 'Via Monte Bianco 34, Turin, Italy', phone: '(480) 63-2097' }
     ])
+    useEffect(() => {
+        localStorage.setItem('employees', JSON.stringify(employees))
+    },[employees]) 
+    useEffect(() => {
+        const employees=localStorage.getItem('employees')
+        setEmployees(JSON.parse(employees));
+    },[])
+    
     const addEmployee = (name, email, address, phone) => {
         setEmployees([...employees, { id: uuidv4(), name, email, address, phone }]);
     }
@@ -20,6 +28,7 @@ const EmployeeContextProvider = (props) => {
     const updateEmployee = (id, updatedEmployee) => {
         setEmployees(employees.map((employee) => (employee.id === id ? updatedEmployee : employee)))
     }
+    
     return (
         <EmployeeContext.Provider value={{ employees, addEmployee, deleteEmployee, updateEmployee }}>
             {props.children}
