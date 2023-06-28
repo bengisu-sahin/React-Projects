@@ -6,9 +6,12 @@ import HeaderPart from "./components/HeaderPart"
 
 function App() {
   return (
+    <>
+    <HeaderPart />
     <StudentContextProvider >
       <StudentList />
     </StudentContextProvider>
+    </>
   );
 }
 
