@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { createContext, useEffect, useReducer, useState } from "react";
-import {StudentContext} from "../contexts/StudentContext";
 
-const Student = () => {
+const HeaderPart = () => {
+
     return (
         <div className='container'>
             <div className='row'>
@@ -11,6 +11,7 @@ const Student = () => {
             </div>
         </div>
     );
-}
+};
 
-export default Student;
+
+export default HeaderPart;
