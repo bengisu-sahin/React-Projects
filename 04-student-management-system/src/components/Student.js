@@ -31,14 +31,27 @@ const Student = ({ student }) => {
                 <Button variant="success" className="btn-primary col-3" onClick={handleShowDetailModal}>Detay</Button>{' '}
             </td>
 
+            {/* Edit Modal */}
+            <Modal show={showEditModal} onHide={handleCloseEditModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Modal</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditForm theStudent={student} onClose={handleCloseEditModal} />
+                </Modal.Body>
+            </Modal>
+
             {/* Detail Modal */}
             <Modal show={showDetailModal} onHide={handleCloseDetailModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Detail Modal</Modal.Title>
+                    <Modal.Title>Öğrenci Bilgileri</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <DetailForm theStudent={student} dept={departments[student.dept]} onClose={handleCloseDetailModal} />
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseDetailModal} >Close </Button>
+                </Modal.Footer>
             </Modal>
         </>
     );
