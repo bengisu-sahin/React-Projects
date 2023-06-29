@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-.x tbody tr:nth-of-type(odd) {
-  background-color:#0c3298;
+.table-students tbody tr:nth-of-type(odd) {
+  background-color:#cdd4ea;
 }
