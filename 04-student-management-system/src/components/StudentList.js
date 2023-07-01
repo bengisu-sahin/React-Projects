@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext,useState} from 'react';
+import { useContext, useState } from 'react';
 import { StudentContext } from '../contexts/StudentContext';
 import { Button, Modal } from 'react-bootstrap';
 import Student from "./Student";
@@ -11,7 +11,10 @@ const StudentList = () => {
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+    }
     return (
         <>
             <div className='student-list-container container'>
@@ -20,10 +23,9 @@ const StudentList = () => {
                         <h3>Öğrenci Listesi</h3>
                     </div>
                     <div className='col-1'>
-                        <Button variant="primary" className="btn-primary" onClick={handleShowAddModal}><i class="bi bi-person-plus"></i></Button>
+                        <Button variant="primary" className="btn-primary" onClick={handleShowAddModal}><i className="bi bi-person-plus"></i></Button>
                     </div>
                 </div>
-
                 <div className='row'>
                     <table className='a table'>
                         <thead className='table-light'>
@@ -44,20 +46,14 @@ const StudentList = () => {
                     </table>
                 </div>
             </div>
-
-            
             {/* Add Modal */}
             <Modal show={showAddModal} onHide={handleCloseAddModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Modal</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AddForm  onClose={handleCloseAddModal} />
+                    <AddForm handleCloseAddModal={handleCloseAddModal} />
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseAddModal} > Close </Button>
-                    <Button variant="primary" onClick={handleCloseAddModal} > Add </Button>
-                </Modal.Footer>
             </Modal>
         </>
     );

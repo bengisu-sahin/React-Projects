@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createContext, useEffect, useReducer, useState } from "react";
 import StudentList from '../components/StudentList';
+import axios from 'axios';
 
 export const StudentContext = createContext();
 //Bu bilesen öğrenci bilgilerini almak icin json server ile iletişime gecer ve diğer componentlere bu bilgileri saglar. (consumer-provider context api structure)
@@ -24,8 +25,19 @@ const StudentContextProvider = (props) => {
         };
         fetcData();
     }, []);
+
+
+    const addStudent = async (newStudent) => {
+        try {
+            setStudents([...students, newStudent]);
+            const response = await axios.post('http://localhost:8000/students', newStudent);
+            //return response.data;
+        } catch (error) {
+            throw new Error('Öğrenci eklenirken bir hata oluştu.');
+        }
+    }
     return (
-        <StudentContext.Provider value={{ students }}>
+        <StudentContext.Provider value={{ students, addStudent }}>
             {props.children}
         </StudentContext.Provider>
     );
