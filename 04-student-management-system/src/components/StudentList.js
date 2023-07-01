@@ -1,11 +1,16 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext,useState} from 'react';
 import { StudentContext } from '../contexts/StudentContext';
-import { Button, Modal, OverlayTrigger, Tooltip, Table } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import Student from "./Student";
+import '../index.css';
+import AddForm from './AddForm';
 
 const StudentList = () => {
     const { students } = useContext(StudentContext);
+    const [showAddModal, setShowAddModal] = useState(false);
+    const handleCloseAddModal = () => setShowAddModal(false);
+    const handleShowAddModal = () => setShowAddModal(true);
 
     return (
         <>
@@ -15,21 +20,21 @@ const StudentList = () => {
                         <h3>Öğrenci Listesi</h3>
                     </div>
                     <div className='col-1'>
-                        <Button variant="primary" className="btn-primary">Add</Button>
+                        <Button variant="primary" className="btn-primary" onClick={handleShowAddModal}><i class="bi bi-person-plus"></i></Button>
                     </div>
                 </div>
 
-                <div className='row'>                   
-                    <table className='table-students table'>
+                <div className='row'>
+                    <table className='a table'>
                         <thead className='table-light'>
-                            <tr>
+                            <tr >
                                 <th className="col-3">İsim Soyisim</th>
                                 <th className="col-3">Öğrenci Numarası</th>
                                 <th className="col-3">Bölüm</th>
                                 <th className="col-3">Yetkiler</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className='table-students'>
                             {students.map((student) => (
                                 <tr key={student.id}>
                                     <Student student={student} />
@@ -39,6 +44,21 @@ const StudentList = () => {
                     </table>
                 </div>
             </div>
+
+            
+            {/* Add Modal */}
+            <Modal show={showAddModal} onHide={handleCloseAddModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Edit Modal</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <AddForm  onClose={handleCloseAddModal} />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseAddModal} > Close </Button>
+                    <Button variant="primary" onClick={handleCloseAddModal} > Add </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 };

@@ -12,9 +12,17 @@ code {
     monospace;
 }
 
-.table-students tbody tr:nth-of-type(odd) {
-  background-color:#cdd4ea;
+.table-students tr:nth-child(odd) {
+  background-color: red;
+  border: none;
 }
+.a{
+  border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+}
+
 .header-item {
   text-align: right;
   font-weight: bolder;

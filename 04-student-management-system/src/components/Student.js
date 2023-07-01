@@ -37,8 +37,12 @@ const Student = ({ student }) => {
                     <Modal.Title>Edit Modal</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditForm theStudent={student} onClose={handleCloseEditModal} />
+                    <EditForm theStudent={student} dept={departments[student.dept]} onClose={handleCloseEditModal} />
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseDetailModal} > Vazgeç </Button>
+                    <Button variant="primary" onClick={handleCloseDetailModal} > Onayla </Button>
+                </Modal.Footer>
             </Modal>
 
             {/* Detail Modal */}
