@@ -13,7 +13,6 @@ const StudentList = () => {
     const handleShowAddModal = () => setShowAddModal(true);
     const handleSubmit = (e) => {
         e.preventDefault();
-
     }
     return (
         <>
