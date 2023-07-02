@@ -25,6 +25,20 @@ const StudentContextProvider = (props) => {
         };
         fetcData();
     }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:8000/students');
+                const data = await response.json();
+                setStudents(data);
+            } catch (error) {
+                console.log('Verileri alırken bir hata oluştu', error);
+            }
+        };
+
+        fetchData();
+    }, [students]);
+
     const addStudent = async (newStudent) => {
         try {
             setStudents([...students, newStudent]);
@@ -43,8 +57,17 @@ const StudentContextProvider = (props) => {
             console.error('Öğrenci silinirken bir hata oluştu', error);
         }
     };
+    const updateStudent = async (studentID, updatedStudent) => {
+        try {
+            await axios.put(`http://localhost:8000/students/${studentID}`, updatedStudent);
+            setStudents(prevStudents => prevStudents.map(student => student.id === studentID ? { ...student } : student));
+        } catch (error) {
+            console.error('Öğrenci güncellenirken bir hata oluştu', error);
+        }
+    };
+
     return (
-        <StudentContext.Provider value={{ students, addStudent,deleteStudent }}>
+        <StudentContext.Provider value={{ students, addStudent, deleteStudent, updateStudent }}>
             {props.children}
         </StudentContext.Provider>
     );

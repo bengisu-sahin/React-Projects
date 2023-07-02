@@ -65,11 +65,10 @@ const Student = ({ student }) => {
                     <Modal.Title><i class="bi bi-exclamation-triangle-fill"></i> Öğrenciyi Düzenle</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditForm theStudent={student} dept={departments[student.dept]} onClose={handleCloseEditModal} />
+                    <EditForm theStudent={student} dept={departments[student.dept]} handleCloseEditModal={handleCloseEditModal} />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleCloseDetailModal} > Vazgeç </Button>
-                    <Button variant="primary" onClick={handleCloseDetailModal} > Onayla </Button>
+            
                 </Modal.Footer>
             </Modal>
 

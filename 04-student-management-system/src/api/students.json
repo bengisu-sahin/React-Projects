@@ -226,149 +226,22 @@
       "dob": "2000-07-17"
     },
     {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "152120191064",
-      "dept": "Ceng",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 26
-    },
-    {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "152120191064",
-      "dept": "Ceng",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 27
-    },
-    {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "152120191064",
-      "dept": "Ceng",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 28
-    },
-    {
-      "fname": "Cansu",
-      "lname": "Şahin",
-      "num": "123456789",
-      "dept": "Fizik",
-      "pob": "Tekirdağ",
-      "dob": "14/07/1990",
-      "id": 29
-    },
-    {
-      "fname": "Dominique",
-      "lname": "2",
-      "num": "441312",
-      "dept": "asdf",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 30
-    },
-    {
-      "fname": "Thomas",
-      "lname": "Hardyyyy",
-      "num": "",
-      "dept": "",
-      "pob": "",
-      "dob": "",
-      "id": 31
-    },
-    {
       "fname": "Miley",
       "lname": "Cyrus",
-      "num": "1234567890",
-      "dept": "Ceng",
-      "pob": "",
-      "dob": "",
+      "num": "123456789045",
+      "dept": "4",
+      "pob": "İzmir",
+      "dob": "2023-06-25",
       "id": 32
     },
     {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "152120191064",
-      "dept": "bolum3",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 33
-    },
-    {
-      "fname": "Dominique",
-      "lname": "2",
-      "num": "152120191064",
-      "dept": "bolum3",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 34
-    },
-    {
-      "fname": "Knock",
-      "lname": "Knock",
-      "num": "12131",
-      "dept": "3",
-      "pob": "İzmir",
-      "dob": "25/11/2000",
-      "id": 35
-    },
-    {
-      "fname": "Thomas",
-      "lname": "Hardyyyy",
-      "num": "12131",
-      "dept": "4",
-      "pob": "İzmir",
-      "dob": "",
-      "birthdate": "2023-07-02T21:00:00.000Z",
-      "id": 36
-    },
-    {
-      "fname": "Dominique",
-      "lname": "2",
-      "num": "12131",
-      "dept": "",
-      "pob": "Tekirdağ",
-      "dob": "2023-07-09T21:00:00.000Z",
+      "fname": "Ali",
+      "lname": "Veli",
+      "num": "121311234567",
+      "dept": "1",
+      "pob": "Ankara",
+      "dob": "2023-05-31",
       "id": 37
-    },
-    {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "12131",
-      "dept": "3",
-      "pob": "İzmir",
-      "dob": "2023-06-25T21:00:00.000Z",
-      "id": 38
-    },
-    {
-      "fname": "Thomas",
-      "lname": "Hamfdfad",
-      "num": "152120191064",
-      "dept": "",
-      "pob": "İzmir",
-      "dob": "",
-      "id": 39
-    },
-    {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "",
-      "dept": "",
-      "pob": "",
-      "dob": "2023-06-25T21:00:00.000Z",
-      "id": 41
-    },
-    {
-      "fname": "Dominique",
-      "lname": "2",
-      "num": "asdsd",
-      "dept": "",
-      "pob": "Tekirdağ",
-      "dob": "2023-06-24T21:00:00.000Z",
-      "id": 42
     }
   ]
 }
