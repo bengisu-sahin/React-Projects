@@ -353,15 +353,6 @@
       "id": 39
     },
     {
-      "fname": "Knock",
-      "lname": "Knock",
-      "num": "",
-      "dept": "",
-      "pob": "",
-      "dob": "2023-06-25T21:00:00.000Z",
-      "id": 40
-    },
-    {
       "fname": "BENGİSU",
       "lname": "ŞAHİN",
       "num": "",
@@ -378,33 +369,6 @@
       "pob": "Tekirdağ",
       "dob": "2023-06-24T21:00:00.000Z",
       "id": 42
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "num": "",
-      "dept": "",
-      "pob": "",
-      "dob": "1968-01-16",
-      "id": 43
-    },
-    {
-      "fname": "BENGİSU",
-      "lname": "ŞAHİN",
-      "num": "42423",
-      "dept": "",
-      "pob": "İzmir",
-      "dob": "2000-11-25",
-      "id": 44
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "num": "",
-      "dept": "2",
-      "pob": "",
-      "dob": null,
-      "id": 45
     }
   ]
 }

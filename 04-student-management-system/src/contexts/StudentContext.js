@@ -25,8 +25,6 @@ const StudentContextProvider = (props) => {
         };
         fetcData();
     }, []);
-
-
     const addStudent = async (newStudent) => {
         try {
             setStudents([...students, newStudent]);
@@ -36,8 +34,17 @@ const StudentContextProvider = (props) => {
             throw new Error('Öğrenci eklenirken bir hata oluştu.');
         }
     }
+    const deleteStudent = async (studentID) => {
+        try {
+            await fetch(`http://localhost:8000/students/${studentID}`, { method: 'DELETE', });
+            setStudents((prevStudents) => prevStudents.filter((student) => student.id !== studentID));
+        }
+        catch (error) {
+            console.error('Öğrenci silinirken bir hata oluştu', error);
+        }
+    };
     return (
-        <StudentContext.Provider value={{ students, addStudent }}>
+        <StudentContext.Provider value={{ students, addStudent,deleteStudent }}>
             {props.children}
         </StudentContext.Provider>
     );

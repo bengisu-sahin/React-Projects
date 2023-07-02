@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useContext, useState } from 'react';
+import { StudentContext } from '../contexts/StudentContext';
 import { Form, Button, Col, Row } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const AddStudentForm = ({ handleCloseAddModal }) => {
+    const { addStudent } = useContext(StudentContext);
     const [newStudent, setNewStudent] = useState({
         fname: "",
         lname: "",
@@ -25,6 +27,7 @@ const AddStudentForm = ({ handleCloseAddModal }) => {
         event.preventDefault();
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
+            addStudent(newStudent);
             handleCloseAddModal();
         } else {
             setValidationErrors(errors);

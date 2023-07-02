@@ -48,7 +48,7 @@ const StudentList = () => {
             {/* Add Modal */}
             <Modal show={showAddModal} onHide={handleCloseAddModal}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Modal</Modal.Title>
+                    <Modal.Title>Eklenecek Öğrenci Bilgileri</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <AddForm handleCloseAddModal={handleCloseAddModal} />
