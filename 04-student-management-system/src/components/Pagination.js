@@ -3,7 +3,7 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Button } from 'react-bootstrap';
 
-const Pagination = ({ pages, setCurrentPage, currentStudents, students, studentsPerPage, currentPage,setStudentsPerPage }) => {
+const Pagination = ({ pages, setCurrentPage, currentStudents, students, studentsPerPage, currentPage, setStudentsPerPage }) => {
     const numOfPages = [];
     for (let i = 1; i <= pages; i++) {
         numOfPages.push(i);
@@ -19,23 +19,24 @@ const Pagination = ({ pages, setCurrentPage, currentStudents, students, students
         { name: "8", value: 8 },
         { name: "10", value: 10 }
     ];
+    const [currentVariant, setCurrentVariant] = useState('outline-primary');
     return (
         <>
-            <div className="row">
-                <div className="col-4">
-                    <span>{studentsPerPage} gösterilir / {students.length}</span>
+            <div className="row no-gutters ">
+                <div className="col-1"></div>
+                <div className="col-3 ">
+                    <span className="pagination-txt"><strong>{students.length}</strong> öğrenciden <strong>{currentPage * studentsPerPage - studentsPerPage}-{currentPage * studentsPerPage} </strong>
+                        arası gösteriliyor.</span>
                 </div>
-                <div className="col-4">
+                <div className="col-3 page-num">
                     {numOfPages.map((page, index) => {
                         return (
-                            <Button key={index} className="mx-1" variant="outline-primary" onClick={() => {setCurrentButton(page);}}>
-                                {page}
-                            </Button>
+                            <Button key={index} className="mx-1" variant={currentButton === page ? 'primary' : 'outline-primary'} onClick={() => { setCurrentButton(page); }}>{page}</Button>
                         )
                     })}
                 </div>
-                <div className="col-4">
-                    <ButtonGroup>
+                <div className="col-3 radios">
+                    <ButtonGroup > 
                         {radios.map((radio, idx) => (
                             <ToggleButton
                                 key={idx}
@@ -54,6 +55,7 @@ const Pagination = ({ pages, setCurrentPage, currentStudents, students, students
                         ))}
                     </ButtonGroup>
                 </div>
+                <div className="col-1"></div>
             </div>
         </>
     )

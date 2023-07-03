@@ -32,8 +32,8 @@ const Student = ({ student }) => {
     return (
         <>
             <td className='col-3'>{student.fname.concat(" ", student.lname)}</td>
-            <td className='col-3'>{student.num}</td>
-            <td className='col-3'>{departments[student.dept]}</td>
+            <td className="col-3 d-none d-md-table-cell">{student.num}</td>
+            <td className="col-3 d-none d-sm-table-cell d-md-table-cell">{departments[student.dept]}</td>
             <td className='col-3'>
                 <Button variant="danger" className="btn-primary col-3" onClick={handleShowDeleteModal}>Sil</Button>{' '}
                 <Button variant="primary" className="btn-primary col-3" onClick={handleShowEditModal}>Düzenle</Button>{' '}
@@ -68,7 +68,7 @@ const Student = ({ student }) => {
                     <EditForm theStudent={student} dept={departments[student.dept]} handleCloseEditModal={handleCloseEditModal} />
                 </Modal.Body>
                 <Modal.Footer>
-            
+
                 </Modal.Footer>
             </Modal>
 

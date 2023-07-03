@@ -14,7 +14,7 @@ const StudentList = () => {
     const handleShowAddModal = () => setShowAddModal(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [studentsPerPage, setStudentsPerPage] = useState(5);
-    const handleSubmit = (e) => {e.preventDefault();}
+    const handleSubmit = (e) => { e.preventDefault(); }
     const indexOfLastStudent = currentPage * studentsPerPage;
     const indexOfFirstStudent = indexOfLastStudent - studentsPerPage;
     const currentStudents = students.slice(indexOfFirstStudent, indexOfLastStudent);
@@ -31,18 +31,18 @@ const StudentList = () => {
                     </div>
                 </div>
                 <div className='row'>
-                    <table className='a table'>
+                    <table className='a table table-students table-striped'>
                         <thead className='table-light'>
                             <tr >
                                 <th className="col-3">İsim Soyisim</th>
-                                <th className="col-3">Öğrenci Numarası</th>
-                                <th className="col-3">Bölüm</th>
+                                <th className="col-3 d-none d-md-table-cell">Öğrenci Numarası</th>
+                                <th className="col-3 d-none d-sm-table-cell d-md-table-cell">Bölüm</th>
                                 <th className="col-3">Yetkiler</th>
                             </tr>
                         </thead>
                         <tbody className='table-students'>
                             {currentStudents.map((student) => (
-                                <tr key={student.id}>
+                                  <tr key={student.id}>
                                     <Student student={student} />
                                 </tr>
                             ))}
@@ -50,7 +50,7 @@ const StudentList = () => {
                     </table>
                 </div>
             </div>
-            <Pagination pages={totalPagesNum} setCurrentPage={setCurrentPage} currentStudents={currentStudents} students={students} studentsPerPage={studentsPerPage} currentPage={currentPage} setStudentsPerPage={setStudentsPerPage}/>
+            <Pagination pages={totalPagesNum} setCurrentPage={setCurrentPage} currentStudents={currentStudents} students={students} studentsPerPage={studentsPerPage} currentPage={currentPage} setStudentsPerPage={setStudentsPerPage} />
             {/* Add Modal */}
             <Modal show={showAddModal} onHide={handleCloseAddModal}>
                 <Modal.Header closeButton>

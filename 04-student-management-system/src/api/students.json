@@ -226,24 +226,6 @@
       "dob": "2000-07-17"
     },
     {
-      "fname": "Miley",
-      "lname": "Cyrus",
-      "num": "123456789045",
-      "dept": "4",
-      "pob": "İzmir",
-      "dob": "2023-06-25",
-      "id": 32
-    },
-    {
-      "fname": "Ali",
-      "lname": "Veli",
-      "num": "121311234567",
-      "dept": "1",
-      "pob": "Ankara",
-      "dob": "2023-05-31",
-      "id": 37
-    },
-    {
       "fname": "Thomas",
       "lname": "Hamfdfad",
       "num": "111111111111",
@@ -251,6 +233,15 @@
       "pob": "İzmir",
       "dob": "2023-06-25",
       "id": 38
+    },
+    {
+      "fname": "Cansu",
+      "lname": "Şahin",
+      "num": "441312123456",
+      "dept": "1",
+      "pob": "Tekirdağ",
+      "dob": "1990-07-13",
+      "id": 39
     }
   ]
 }

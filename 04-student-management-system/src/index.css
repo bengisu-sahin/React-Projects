@@ -12,10 +12,18 @@ code {
     monospace;
 }
 
-.table-students tr:nth-child(odd) {
-  background-color: red;
-  border: none;
+.page-num{
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
+
+.radios{
+  display: flex;
+  align-items: right;
+  justify-content:  right;
+}
+
 .a{
   border-top-style: none;
     border-left-style: none;
