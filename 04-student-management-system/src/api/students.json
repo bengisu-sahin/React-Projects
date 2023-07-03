@@ -242,6 +242,15 @@
       "pob": "Ankara",
       "dob": "2023-05-31",
       "id": 37
+    },
+    {
+      "fname": "Thomas",
+      "lname": "Hamfdfad",
+      "num": "111111111111",
+      "dept": "1",
+      "pob": "İzmir",
+      "dob": "2023-06-25",
+      "id": 38
     }
   ]
 }

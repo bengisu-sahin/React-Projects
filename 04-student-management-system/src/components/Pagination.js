@@ -3,7 +3,7 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { Button } from 'react-bootstrap';
 
-const Pagination = ({ pages, setCurrentPage, currentStudents, students, studentsPerPage, currentPage }) => {
+const Pagination = ({ pages, setCurrentPage, currentStudents, students, studentsPerPage, currentPage,setStudentsPerPage }) => {
     const numOfPages = [];
     for (let i = 1; i <= pages; i++) {
         numOfPages.push(i);
@@ -47,6 +47,7 @@ const Pagination = ({ pages, setCurrentPage, currentStudents, students, students
                                 checked={radioValue === radio.value}
                                 onChange={() => {
                                     setRadioValue(radio.value);
+                                    setStudentsPerPage(radio.value);
                                 }}>
                                 {radio.name}
                             </ToggleButton>

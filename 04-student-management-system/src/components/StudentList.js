@@ -50,7 +50,7 @@ const StudentList = () => {
                     </table>
                 </div>
             </div>
-            <Pagination pages={totalPagesNum} setCurrentPage={setCurrentPage} currentStudents={currentStudents} students={students} studentsPerPage={studentsPerPage} currentPage={currentPage}/>
+            <Pagination pages={totalPagesNum} setCurrentPage={setCurrentPage} currentStudents={currentStudents} students={students} studentsPerPage={studentsPerPage} currentPage={currentPage} setStudentsPerPage={setStudentsPerPage}/>
             {/* Add Modal */}
             <Modal show={showAddModal} onHide={handleCloseAddModal}>
                 <Modal.Header closeButton>
