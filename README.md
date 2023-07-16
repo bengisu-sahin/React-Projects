@@ -14,3 +14,8 @@
    CRUD operations were performed. Learned to use hooks. The concept of LocalStorage was learned and implemented. You can learn from the project commits what all the other issues that are focused on are. Below is how the application works.
 
 ![Manage Employees - Kişisel - Microsoft_ Edge 2023-06-26 15-19-50 (1)](https://github.com/bengisu-sahin/React-Projects/assets/71591780/4162e23b-6817-44c4-81d6-681af9ddbff8)
+
+## Project 5 - Movie App with Next.js
+This project was written to learn the next.js framework. At the same time, Tailwind CSS is used. The "themoviedb.org" site was used for the API.
+
+![ezgif com-video-to-gif](https://github.com/bengisu-sahin/React-Projects/assets/71591780/5fbffa6f-15ac-4488-8945-53b2423e174b)
