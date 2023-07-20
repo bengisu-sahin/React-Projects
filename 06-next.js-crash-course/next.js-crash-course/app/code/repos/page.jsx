@@ -3,8 +3,14 @@ import Link from 'next/link';
 import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 
 async function fetchRepos() {
-    const response = await fetch("https://api.github.com/users/bengisu-sahin/repos");
-    await new Promise((resolve)=>setTimeout(resolve,1000));
+    const response = await fetch("https://api.github.com/users/bengisu-sahin/repos",
+        {
+            next: {
+                revalidate: 60,
+            },
+        }
+    );
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     return await response.json();
 }
 const ReposPage = async () => {
