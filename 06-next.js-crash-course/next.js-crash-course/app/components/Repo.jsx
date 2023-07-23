@@ -4,7 +4,13 @@ import { FaStar, FaCodeBranch, FaEye } from 'react-icons/fa';
 async function fetchRepo(name) {
     const response = await fetch(
         `https://api.github.com/repos/bengisu-sahin/${name}`,
-        {
+        { 
+            /**
+             * Next in yeni özelliğiyle getServerSideProps ve getStaticProps gibi
+             * yöntemlerin yerine yanı sıra bu özelliği getirmiştir. Eğer sayfada sürekli bir
+             * veri yenilenmesi olmasına ihtiyaç duyuluyorsa bu özellik veri çekilirken eklenir.
+             * Burada verinin her 60 sn de bir tekrardan request edilip güncellenmesi istenmektedir.
+             */
             next: {
                 revalidate: 60,
             },
