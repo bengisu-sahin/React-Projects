@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Computer-Programming-2",
+        "link": "https://github.com/bengisu-sahin/Computer-Programming-2",
+        "description": "This repo consists of programming assignments given in the 1st year spring semester of computer engineering. All programs are written in C++. The homework document given in each folder can be accessed."
+    },
+    {
+        "id": 2,
+        "title": "Data-Structures",
+        "link": "https://github.com/bengisu-sahin/Data-Structures",
+        "description": "This repo contains the data structures I learned in the computer engineering data structures course and the homework I did about them."
+    },
+    {
+        "id": 3,
+        "title": "Introduction-to-Microcomputers-Lab",
+        "link": "https://github.com/bengisu-sahin/Introduction-to-Microcomputers-Lab",
+        "description": "This repository is opened for homework and answers for the microcomputers lab course."
+    },
+    {
+        "id": 4,
+        "title": "Operating-Systems",
+        "link": "https://github.com/bengisu-sahin/Operating-Systems",
+        "description": "This repository has been opened to learn UNIX commands and understand basic operating system concepts. It includes the projects given in the operating systems laboratory course."
+    },
+    {
+        "id": 5,
+        "title": "React-Projects",      
+        "link": "https://github.com/bengisu-sahin/React-Projects",
+        "description": "This repo contains the projects and notes taken from the courses watched to learn technologies such as react next.js."
+    }
+]
