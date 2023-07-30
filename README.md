@@ -16,6 +16,11 @@
 ![Manage Employees - Kişisel - Microsoft_ Edge 2023-06-26 15-19-50 (1)](https://github.com/bengisu-sahin/React-Projects/assets/71591780/4162e23b-6817-44c4-81d6-681af9ddbff8)
 
 ## Project 5 - Movie App with Next.js
-This project was written to learn the next.js framework. At the same time, Tailwind CSS is used. The "themoviedb.org" site was used for the API.
+   This project was written to learn the next.js framework. At the same time, Tailwind CSS is used. The "themoviedb.org" site was used for the API.
 
 ![ezgif com-video-to-gif](https://github.com/bengisu-sahin/React-Projects/assets/71591780/5fbffa6f-15ac-4488-8945-53b2423e174b)
+
+## Project 7 - Weather App
+   In this project, useState hook has been used and api operations have been made. At the same time, "react accordion component" and "react-select-async-paginate" third part libraries are used. API provided from openweathermap and rapidapi.
+
+   ![weather-app](https://github.com/bengisu-sahin/React-Projects/assets/71591780/29316eb0-b23c-4a81-8449-6f87d8ebd9ed)
