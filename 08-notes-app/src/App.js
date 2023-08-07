@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Header from "./components/Header";
 import SearchBar from "./components/Search";
@@ -42,6 +42,17 @@ function App() {
     setSearchText(searchedTxt);;
   }
   const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+  
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+  }, [notes]);
+  
   return (
     <div className={`${darkMode && 'dark-mode'}`}>
       <div className="container">
@@ -50,7 +61,7 @@ function App() {
         <NoteList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} handleAddNote={addNote} handleDeleteNote={deleteNote} />
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
