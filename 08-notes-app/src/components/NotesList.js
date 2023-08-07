@@ -1,15 +1,15 @@
 import React,{useState} from "react";
 import Note from "./Note";
+import AddNote from "./AddNote";
 
-const NoteList = ({notes}) => {
+const NoteList = ({notes,handleAddNote}) => {
   return (
-    <div>
       <div className="notes-list">
         {
           notes.map((note)=><Note note={note}/>)
         }
+        <AddNote handleAddNote={handleAddNote}/>
       </div>
-    </div>
   );
 };
 

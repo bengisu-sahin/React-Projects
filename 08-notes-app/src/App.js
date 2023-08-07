@@ -27,9 +27,16 @@ function App() {
       date: "30/04/2021",
     },
   ]);
+  const addNote=(text)=>{
+    const date=new Date();
+    const newNote={id:nanoid(),text:text,date:date.toLocaleDateString()};
+    const updatedNotes=[...notes,newNote];
+    setNotes(updatedNotes);
+  }
   return (
     <div className="container">
-      <NoteList notes={notes}/>
+      {/* prop drilling */}
+      <NoteList notes={notes} handleAddNote={addNote}/> 
     </div>
   );
 }
