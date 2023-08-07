@@ -37,10 +37,15 @@ function App() {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   }
+  const [searchText,setSearchText]=useState("");
+  const handleSearchNote=(searchedTxt)=>{
+    setSearchText(searchedTxt);;
+  }
   return (
     <div className="container">
+      <SearchBar handleSearchNote={handleSearchNote}/>
       {/* prop drilling */}
-      <NoteList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+      <NoteList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   );
 }

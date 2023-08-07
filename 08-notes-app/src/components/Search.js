@@ -1,28 +1,19 @@
-import React, { useState } from "react";
+import React from 'react';
+import { MdSearch } from 'react-icons/md';
 
-const SearchBar = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-  const handleSearch = () => {
-    // Arama işlemini gerçekleştirmek için, "onSearch" prop'unu kullanıyoruz.
-    // Bu prop, arama işlemini ana uygulama bileşenine iletecektir.
-    onSearch(searchTerm);
-  };
-
+const Search = ({ handleSearchNote }) => {
   return (
-    <div>
+    <div className='search'>
+      <MdSearch className='search-icons' size='1.3em' />
       <input
-        type="text"
-        value={searchTerm}
-        onChange={handleInputChange}
-        placeholder="Arama yapın..."
+        onChange={(event) =>
+          handleSearchNote(event.target.value)
+        }
+        type='text'
+        placeholder='type to search...'
       />
-      <button onClick={handleSearch}>Ara</button>
     </div>
   );
 };
 
-export default SearchBar;
+export default Search;
