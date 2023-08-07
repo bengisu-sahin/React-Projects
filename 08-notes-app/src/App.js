@@ -37,15 +37,18 @@ function App() {
     const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   }
-  const [searchText,setSearchText]=useState("");
-  const handleSearchNote=(searchedTxt)=>{
+  const [searchText, setSearchText] = useState("");
+  const handleSearchNote = (searchedTxt) => {
     setSearchText(searchedTxt);;
   }
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <div className="container">
-      <SearchBar handleSearchNote={handleSearchNote}/>
-      {/* prop drilling */}
-      <NoteList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
+    <div className={`${darkMode && 'dark-mode'}`}>
+      <div className="container">
+        <Header handleToggleDarkMode={setDarkMode} />
+        <SearchBar handleSearchNote={handleSearchNote} />
+        <NoteList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText.toLowerCase()))} handleAddNote={addNote} handleDeleteNote={deleteNote} />
+      </div>
     </div>
   );
 }
