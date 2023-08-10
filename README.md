@@ -24,3 +24,6 @@
    In this project, useState hook has been used and api operations have been made. At the same time, "react accordion component" and "react-select-async-paginate" third part libraries are used. API provided from openweathermap and rapidapi.
 
    ![weather-app](https://github.com/bengisu-sahin/React-Projects/assets/71591780/29316eb0-b23c-4a81-8449-6f87d8ebd9ed)
+
+## Project 8 - Notes App
+   ![image](https://github.com/bengisu-sahin/React-Projects/assets/71591780/57723b74-0920-4667-936b-5ecde3f98d22)
