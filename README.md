@@ -28,5 +28,8 @@
 ## Project 8 - Notes App
    ![image](https://github.com/bengisu-sahin/React-Projects/assets/71591780/57723b74-0920-4667-936b-5ecde3f98d22)
 ## Project 9 - Landing Page Project with Next.js
-      Animation was made by using framer-motion library. Additionally, we learned how to use the useInview hook.
+   Animation was made by using framer-motion library. Additionally, we learned how to use the useInview hook.
+   The application is written in tailwind so that it is compatible with different screen sizes and there will be changes in the menu bar and screen design accordingly. On the Nextjs side, page redirection, opening another new tab when clicking the link, and using link and img components are fulfilled.
 ![ezgif com-video-to-gif](https://github.com/bengisu-sahin/React-Projects/assets/71591780/70d11990-b513-4617-a894-d4c5928ef066)
+
+   
