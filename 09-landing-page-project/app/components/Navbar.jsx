@@ -1,22 +1,34 @@
 "use client";
+
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
-const Navbar = () => {
+export default function Navbar() {
   const [navigation, setNavigation] = useState(false);
   const handleNavigation = () => {
     setNavigation(!navigation);
   };
   return (
     <header className="w-full bg-slate-800 text-[#ffba00] fixed top-0 left-0 z-30">
-      <nav className="w-full max-w-[1440px] mx-auto h-[90px] flex justify-between items-center px-7 py-4">
-        <Link href="/">
-          <p className="font-bold text-3xl lg:text-2xl xl:text-4xl cursor-pointer">
+      <nav className="check max-w-[1440px] mx-auto h-[90px] flex justify-between items-center px-7 py-4">
+        <Link href="/" className="cursor-pointer">
+          <p className="text-custom_gold font-bold text-3xl lg:text-2xl xl:text-4xl">
             eScooters
           </p>
         </Link>
-        <ul className="hidden lg:flex uppercase font-semibold text-[14px] xl:text[16px] cursor pointer text-white">
+        <ul
+          className="
+                    hidden
+                    lg:flex
+                    uppercase
+                    font-semibold
+                    text-[14px]
+                    xl:text-[16px]
+                    cursor-pointer
+                    text-white
+                "
+        >
           <li className="">
             <Link href="/">home</Link>
           </li>
@@ -85,9 +97,7 @@ const Navbar = () => {
       </nav>
     </header>
   );
-};
-
-export default Navbar;
+}
 
 /*
 1. `w-full`: Elementin genişliğini ekran genişliğine ayarlar.
@@ -116,4 +126,12 @@ export default Navbar;
 24. `block`: Bu sınıf, bir öğenin blok düzenini temsil eder. Blok düzeni, öğeyi diğer öğelerin altına yerleştirir. Bu sınıf, öğenin görünür olduğu tüm ekran boyutları için geçerlidir.
 25. `lg:hidden`: Bu sınıf, büyük ekran boyutlarında (genellikle 'lg' ekran boyutu veya daha büyük) öğenin gizli olacağını belirtir. Yani, büyük ekranlarda bu öğe görünmez olacaktır. Küçük ekranlarda ise görünür olacaktır.
 
+
+`ease-in` ve `duration` terimleri, CSS animasyonlarını ve geçişlerini kontrol etmek için kullanılan özelliklerdir.
+
+1. **Ease-in:** `ease-in` bir animasyonun veya geçişin başlangıcının yavaş olduğunu belirtir. Bu türdeki bir animasyon, başlangıçta yavaşça hızlanarak hedefe doğru ilerler. Yani hareket veya değişim başlangıçta daha yavaş ve sonra hızlanarak gerçekleşir. Daha yumuşak ve doğal bir etki yaratır.
+
+2. **Duration:** `duration` özelliği animasyonun veya geçişin ne kadar sürede tamamlanacağını belirtir. Bu süre, milisaniye cinsinden belirtilir. Örneğin, `duration-300` ifadesi, 300 milisaniyede (0.3 saniye) animasyonun tamamlanacağını belirtir.
+
+Bu iki özellik, CSS animasyonları ve geçişlerinin hız ve akıcılığını kontrol etmek için kullanılır. `ease-in` ve `duration` gibi terimler, animasyonların hissedilen akıcılığını ve hızını ayarlayarak daha hoş bir kullanıcı deneyimi sağlamak için önemlidir.
 .*/
