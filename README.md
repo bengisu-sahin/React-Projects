@@ -27,3 +27,6 @@
 
 ## Project 8 - Notes App
    ![image](https://github.com/bengisu-sahin/React-Projects/assets/71591780/57723b74-0920-4667-936b-5ecde3f98d22)
+## Project 9 - Landing Page Project with Next.js
+      Animation was made by using framer-motion library. Additionally, we learned how to use the useInview hook.
+![ezgif com-video-to-gif](https://github.com/bengisu-sahin/React-Projects/assets/71591780/70d11990-b513-4617-a894-d4c5928ef066)
